@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="p-1">
+        <h2>Isbn list</h2>
+    </div>
+    <div *ngFor="let obj of isbnList; let i = index">
+        <div class="p-1" style="width: 30%;">
+            <div class="alert alert-danger" role="alert" id="myErrorDiv_{{i}}" style="display:none;">
+                This is an error!
+            </div>
+            <div class="alert alert-success" role="alert" id="myOKDiv_{{i}}" style="display:none;">
+                This is OK
+            </div>            
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="isbn 10 or 13 (ex: 0-19-852663-6)" aria-label="isbn 10 or 13 (ex: 0-19-852663-6)" aria-describedby="basic-addon2" [(ngModel)]="obj.StrIsbn">
+                <div class="input-group-append">
+                <button (click)="onValidateTwo(obj, i)" class="btn btn-outline-secondary" type="button">Validate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a (click)="onAdd()" class="link-primary">Add</a>
+
+</div>
